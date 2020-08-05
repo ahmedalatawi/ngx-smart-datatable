@@ -59,6 +59,7 @@ THE SOFTWARE.
 
 
 ngx-smart-datatable
+MIT
 
 regenerator-runtime
 MIT
