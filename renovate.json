@@ -1,0 +1,37 @@
+{
+    "extends": ["config:base"],
+    "baseBranch": "master",
+    "packageRules": [
+        {
+            "packagePatterns": ["ngx-smart-datatable"],
+            "rangeStrategy": "replace"
+        },
+        {
+            "packagePatterns": ["ngx-smart-datatable"],
+            "depTypeList": ["devDependencies"],
+            "rangeStrategy": "pin"
+        },
+        {
+            "packagePatterns": ["ngx-smart-datatable"],
+            "depTypeList": ["peerDependencies"],
+            "rangeStrategy": "widen"
+        },
+        {
+            "packagePatterns": ["angular-datatable-demo"],
+            "rangeStrategy": "replace",
+            "semanticCommitType": "chore"
+        },
+        {
+            "packagePatterns": ["angular-datatable-demo"],
+            "depTypeList": ["devDependencies"],
+            "rangeStrategy": "pin",
+            "semanticCommitType": "chore"
+        },
+        {
+            "packagePatterns": ["angular-datatable-demo"],
+            "depTypeList": ["peerDependencies"],
+            "rangeStrategy": "widen",
+            "semanticCommitType": "chore"
+        }
+    ]
+}

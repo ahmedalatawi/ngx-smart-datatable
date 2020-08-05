@@ -4,12 +4,66 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /angular-datatable-demo/ --prod",
+    "build-lib": "ng build ngx-smart-datatable --prod && npm run copy",
+    "build-lib-watch": "ng build ngx-smart-datatable --watch",
+    "clean": "rm -rf ./dist & rm -rf node_modules & npm cache clean --force",
     "test": "ng test",
+    "test-lib": "ng test ngx-smart-datatable --code-coverage",
+    "test-lib-ci": "npm run test-lib -- --browsers ChromeHeadlessCI --watch false",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint-lib": "ng lint ngx-smart-datatable",
+    "prettier-format": "prettier --config .prettierrc '**/*.{ts,js,html,css,json}' --write",
+    "copy": "cp README.md dist/ngx-smart-datatable",
+    "e2e": "ng e2e",
+    "commit": "git-cz",
+    "prepublishOnly": "npm run -s build",
+    "travis-deploy-once": "travis-deploy-once --pro",
+    "semantic-release": "semantic-release"
   },
-  "private": true,
+  "release": {
+    "pkgRoot": "dist/ngx-smart-datatable"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier-format",
+      "commit-msg": "commitlint --edit"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AhmedAlatawi/ngx-smart-datatable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AhmedAlatawi/ngx-smart-datatable/issues"
+  },
+  "homepage": "https://github.com/AhmedAlatawi/ngx-smart-datatable",
+  "keywords": [
+    "angular",
+    "javascript",
+    "typescript",
+    "bootstrap",
+    "datatables.net",
+    "jquery",
+    "jquery-ui",
+    "table",
+    "smart"
+  ],
   "dependencies": {
     "@angular/animations": "~9.0.7",
     "@angular/common": "~9.0.7",
@@ -25,13 +79,18 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.7",
+    "@angular-devkit/build-ng-packagr": "~0.900.7",
     "@angular/cli": "~9.0.7",
     "@angular/compiler-cli": "~9.0.7",
     "@angular/language-service": "~9.0.7",
-    "@types/node": "^12.11.1",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
@@ -39,7 +98,11 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "ng-packagr": "^9.0.0",
+    "prettier": "2.0.5",
     "protractor": "~5.4.3",
+    "semantic-release": "^17.1.1",
+    "travis-deploy-once": "^5.0.11",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
