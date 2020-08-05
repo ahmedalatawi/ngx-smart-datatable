@@ -1,4 +1,11 @@
-<table *ngIf="loadTable" id="smartTable"
-  [ngClass]="{'table-striped': settings?.stylings?.striped, 'table-bordered': settings?.stylings?.bordered, 'table-hover': settings?.stylings?.hover}"
-  class="table" style="width:100%">
-</table>
+<table
+    *ngIf="loadTable"
+    id="smartTable"
+    [ngClass]="{
+        'table-striped': settings?.stylings?.striped,
+        'table-bordered': settings?.stylings?.bordered,
+        'table-hover': settings?.stylings?.hover
+    }"
+    class="table"
+    style="width: 100%;"
+></table>

@@ -3,13 +3,12 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class AppService {
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getUsers(): Observable<any> {
-    return this.http.get<any>('https://jsonplaceholder.typicode.com/users');
-  }
+    getUsers(): Observable<any> {
+        return this.http.get<any>('https://jsonplaceholder.typicode.com/users');
+    }
 }
