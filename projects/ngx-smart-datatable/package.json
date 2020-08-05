@@ -1,6 +1,28 @@
 {
     "name": "ngx-smart-datatable",
     "version": "0.0.0-semantically-released",
+    "description": "A light weight Angular component used as a wrapper for DataTables.net, the smartest datatable.",
+    "author": "Ahmed Alatawi (aalat001@gmail.com)",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AhmedAlatawi/ngx-smart-datatable.git"
+    },
+    "bugs": {
+        "url": "https://github.com/AhmedAlatawi/ngx-smart-datatable/issues"
+    },
+    "homepage": "https://github.com/AhmedAlatawi/ngx-smart-datatable",
+    "keywords": [
+        "angular",
+        "javascript",
+        "typescript",
+        "bootstrap",
+        "datatables.net",
+        "jquery",
+        "jquery-ui",
+        "table",
+        "smart"
+    ],
     "peerDependencies": {
         "@angular/common": "^9.0.7",
         "@angular/core": "^9.0.7",
