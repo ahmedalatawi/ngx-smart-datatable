@@ -135,7 +135,7 @@ export class AppComponent implements OnInit {
     settings: any = {
         columns: this.columns,
         colReorder: true,
-        rowReorder: true,
+        // rowReorder: true,
         paging: true,
         ordering: true,
         fixedHeader: true,
@@ -157,7 +157,7 @@ export class AppComponent implements OnInit {
         // fixedColumns: true,
         // order: [[ 0, 'asc' ], [ 1, 'asc' ], [ 3, 'desc' ]],
         // autoFill: true,
-        // responsive: true,
+        responsive: true,
         // searchPanes: true,
         searching: true,
         processing: true,

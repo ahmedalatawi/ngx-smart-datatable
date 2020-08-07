@@ -1,27 +1,88 @@
-# AngularDatatableDemo
+[![Build Status](https://travis-ci.com/AhmedAlatawi/ngx-smart-datatable.svg?branch=master)](https://travis-ci.org/AhmedAlatawi/ngx-smart-datatable)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
-## Development server
+# NgxSmartDatatable
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A light weight Angular component used as a wrapper for [DataTables.net](https://datatables.net/), the smartest datatable in the world :fire:.
 
-## Code scaffolding
+DataTables.net provides many [extensions](https://datatables.net/extensions/index) that you might or might not need for your datatable. Therefore, NgxSmartDatatable is lazily loaded meaning that only the extensions you need will be loaded once in the web page. This technique prevents any of the extension libraries from being bundled in your application.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### [Demo](https://stackblitz.com/github/AhmedAlatawi/ngx-smart-datatable) :movie_camera:
 
-## Build
+### :arrow_down: Installation 
+```sh
+npm install ngx-smart-datatable --save
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Quick start :rocket:
+```html
+<ngx-smart-datatable
+     ...
 
-## Running unit tests
+    [settings]="settings">
+</ngx-smart-datatable>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Zero configuration
+```typescript
+...
 
-## Running end-to-end tests
+columns: any = [
+    {
+        data: 'id',
+        title: 'ID'
+    },
+    {
+        data: 'firstName',
+        title: 'First Name'
+    },
+    {
+        data: 'lastName',
+        title: 'Last Name'
+    },
+    {
+        data: 'email',
+        title: 'Email'
+    }
+];
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+data = [
+    {
+        id: 1,
+        firstName: "Paul",
+        lastName: "Young",
+        email: "paul.young@gmail.com"
+    },
+    {
+        id: 2,
+        firstName: "John",
+        lastName: "Doe",
+        email: "john.doe@yahoo.com"
+    },
 
-## Further help
+    ...
+]
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+settings = {
+    columns: this.columns,
+    data: this.data,
+    ...
+
+    // these are set to true by default
+    paging: false,
+    ordering: false,
+    info: false,
+    searching: false
+}
+```
+
+### Reference :dart:
+* [DataTables.net](https://datatables.net/)
+
+
+### Author :books:
+[Ahmed Alatawi](https://github.com/AhmedAlatawi)
+
