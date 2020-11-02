@@ -79,8 +79,59 @@ settings = {
 }
 ```
 
+### :page_facing_up: NgxSmartDatatable API
+
+| Attributes | Description |
+| --- | --- |
+| `[settings]` | The settings applied to the `table`, which include the `columns` and `data` properties (required) | 
+| `(sortedOrder)` | A `sort` event fired when data order is changed (`asc` or `desc`). Note: `ordering` property must be set to `true` in `settings` |
+| `(selectedRows)` | A `select` event fired when a row is selected. Note: `select` property must be set to `true` in `settings` |
+| `(deselectedRows)` | A `deselect` event fired when a row is deselected |
+| `(reorderedRow)` | A `row-reorder` event fired when rows are reordered. Note: `rowReorder` property must be set to `true` in `settings` |
+| `(reorderedColumn)` | A `column-reorder` event fired when columns are reordered. Note: `colReorder` property must be set to `true` in `settings` |
+| `(selectedKeyCells)` | A `key` event fired when a keyboard key is detected and pressed. Note: `keys` property must be set to `true` in `settings` |
+| `(changedPage)` | A `page` event fired when table's paging is updated |
+| `(autoFilledCells)` | An `autoFill` event triggered when an fill action is completed. Note: `autoFill` property must be set to `true` in `settings` |
+| `(displayedResponsive)` | A `responsive-display` event fired when the display of table is updated. Note: `responsive` property must be set to `true` in `settings` |
+| `(loadedTable)` | An event fired when the table is fully loaded |
+| `(loadedjQuery)` | An event fired when an instance of jQuery is loaded |
+
+
+### Note: :bulb:
+
+`(emittedEvent)`: This is used to fire an event(s), which is not mentioned in the above table. The list of all available events can be found [here](https://datatables.net/reference/event/). The name(s) of the event(s) would need to be added to `eventNames` array in the `settings` object. 
+
+Example of adding `responsive-resize` and `column-reorder` events:
+```html
+<ngx-smart-datatable
+     ...
+
+    (emittedEvent)="onEmitEvent($event)">
+</ngx-smart-datatable>
+```
+ ```typescript
+ settings = {
+    ...
+    
+    eventNames: ['responsive-resize', 'column-reorder']
+}
+...
+
+onEmitEvent(event: any): void {
+    console.log('onEmitEvent: ', event);
+
+    if (event.e.type === 'responsive-resize') {
+        // do something
+    }
+
+    if (event.e.type === 'column-reorder') {
+        // do something
+    }
+}
+ ```
+
 ### Reference :dart:
-* [DataTables.net](https://datatables.net/)
+[DataTables.net](https://datatables.net/)
 
 
 ### Author :books:
